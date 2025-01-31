@@ -5,87 +5,73 @@
 }
 
 body{
-    background-image: url("/assets/background.jpg");
+    background-color: rgb(255, 220, 220);
+    background-image: url("/assets/nappagehaut.png"), url("/assets/nappagebas.png");
+    background-repeat: no-repeat no-repeat;   
+    background-position: top center, bottom center;
+    background-size: 100% auto, 100% auto; /* Largeur pleine, hauteur automatique */
 }
 
 .flex{
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
 }
+
 
 h1{
     font-family: "Pacifico";
     font-size: 48px;
+    margin: 0 auto 0 auto;
 }
 
 /* header */
 
-header{
-    margin-top: 20px;
-}
-
-main{
-    flex-direction: column;
-}
-
 nav{
-    position: relative;
-    flex-grow: 1;
     max-width: 1300px;
-    height: 150px;
+    height: 100px;
     background-color: #07AF9F;
     border-radius: 50px;
-    gap: 5%;
-    justify-content: space-between;
+    gap: 1%;
+    margin: 8vh auto 0 auto;
+    padding: 0 1vw;
 }
 
-.left-nav, .right-nav{
-    gap: 5%;
-}
-
-#icon-account{
-    position: absolute;
-    right: 60px;
-    bottom: 105%;
-    /* transform: translate(-50%, -50%); */
-}
-
-#icon-language{
-    position: absolute;
-    left: 5%;
-    bottom: 105%;
-    /* transform: translate(-50%, -50%); */
+nav > a{
+    transition: transform 0.5s ease; /* Transition fluide sur le déplacement */
 }
 
 [color="pink"]{--color:#FF1979}
 [color="brown"]{--color:#472131}
 button{
     font-family: "Pacifico";
-    font-size: 20px;
-    min-width: 150px;
+    font-size: 16px;
+    width: auto;
+    white-space: nowrap;
+    padding: 1vh 1vw;
     height: 60px;
     color: white;
     background: var(--color, #472131);
     border-radius: 50px;
     border: none;
+    transition: opacity 0.5s ease; /* Transition fluide sur l'opacité */
 }
 
 /* slider */
 
 .slider{
-    margin-top: 10vh;
+    margin: 10vh auto 0 auto; /* a revoir */
     background-color: gray;
-    width: 1300px;
+    width: 100%;
     /* min-width: 100vw; */
     height: 580px;
     border-radius: 25px;
-    border: 1px solid red; /*maybe no border */
 }
 
 /* pagination */
 
 .pagination{
+    margin: 0 auto 0 auto;
     width: 100px;
     height: 15px;
     border: 2px green solid;
@@ -102,6 +88,7 @@ button{
     gap: 40px;
     justify-content: center;
     align-items: center;
+    margin: 0 auto 0 auto;
 }
 
 .article{
@@ -115,10 +102,11 @@ button{
 }
 
 .article img{
-    width: 400px;
-    height: 400px;
+    width: 300px;
+    height: 300px;
     border-radius: 25px;
     filter: saturate(85%);
+    border: solid black 2px;
 }
 
 .article img:hover{
@@ -131,27 +119,43 @@ button{
     vertical-align: middle;
 }
 
+/* footer */
+footer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 800px;
+    background-color: #07AF9F;
+    margin: 10vh auto 0 auto;
+    padding: 1vh 1vw;
+    border-radius: 20px;
+    gap: 2vh;
+}
 
+.socials{
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+}
 
-@media (max-width: 1300px){ /*de +inf à 1300px*/
-    
-    .flex{
-        justify-content: space-evenly;
-    }
+.links{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+}
 
-    /* header */
-    nav{
-        border-radius: 30px;
-    }
+.links > *{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
-    nav button{
-        min-width: auto;
-        height: auto;
-    }
-    .left-nav, .right-nav{
-        flex-direction: column;
-        gap: 10px;
-    }
+footer > h3{
+    margin: 0 auto 0 auto;
+}
+
+@media (max-width: 1300px){ /*sous 1300px*/
 
     /* slider */
     .slider{
@@ -166,9 +170,36 @@ button{
     }
 }
 
-@media (max-width: 850px){ /*de 1300px à 850px*/
+@media (max-width: 1100px){ /*sous 1100px*/
 
-    /* articles */
+
+}
+
+@media (max-width: 1000px){ /*sous 1000px*/
+
+}
+
+@media (max-width: 850px){ /*sous 850px*/
+
+    nav > button{
+        opacity: 0; /* Disparition progressive */
+        pointer-events: none; /* Désactive l'interaction quand invisible */;
+    }
+    nav > a{
+        position: absolute;
+        transform: translateX(-35vw);
+        /* left: 15%;
+        top: 125px;
+        transform: translate(-50%, -50%); */
+    }
+    /* nav > a > img{
+        width: 20vw;
+        height: auto;
+    } */
+}
+
+@media (max-width: 650px) {
+
     .articles{
         display: flex;
         flex-direction: column;
