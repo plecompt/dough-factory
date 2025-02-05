@@ -9,7 +9,7 @@ body{
     background-image: url("/assets/nappagehaut.png"), url("/assets/nappagebas.png");
     background-repeat: no-repeat no-repeat;   
     background-position: top center, bottom center;
-    background-size: 100% auto, 100% auto; /* Largeur pleine, hauteur automatique */
+    background-size: 100% auto, 100% auto;
 }
 
 .flex{
@@ -22,7 +22,24 @@ body{
 h1{
     font-family: "Pacifico";
     font-size: 48px;
-    margin: 0 auto 0 auto;
+    margin: 5vh;
+}
+
+main{
+    text-align: center;
+}
+
+a {
+    text-decoration: none; /* Supprime le soulignement */
+    color: black;
+}
+
+a:visited {
+    color: inherit; /* Empêche le changement de couleur après clic */
+}
+
+img:hover, a:hover, button:hover, .dot:hover {
+    cursor: pointer; /* Change l'icône de la souris */
 }
 
 /* header */
@@ -38,7 +55,7 @@ nav{
 }
 
 nav > a{
-    transition: transform 0.5s ease; /* Transition fluide sur le déplacement */
+    transition: transform 0.3s ease-in-out; /* Transition fluide sur le déplacement */
 }
 
 [color="pink"]{--color:#FF1979}
@@ -54,27 +71,82 @@ button{
     background: var(--color, #472131);
     border-radius: 50px;
     border: none;
-    transition: opacity 0.5s ease; /* Transition fluide sur l'opacité */
+}
+
+#icon-menu{
+    display: none;
+    width: 60px;
+    height: 60px;
 }
 
 /* slider */
 
-.slider{
-    margin: 10vh auto 0 auto; /* a revoir */
-    background-color: gray;
-    width: 100%;
-    /* min-width: 100vw; */
-    height: 580px;
+.slider {
+    position: relative;
+    max-width: 1300px;
+    overflow: hidden;
     border-radius: 25px;
+    margin: 10vh auto 0 auto;
+}
+
+.slider-container {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slider-slide {
+    min-width: 100%;
+    background-color: rgb(255, 220, 220);
+}
+
+.slider-slide > img {
+    width: 100%;
+    height: 100%;
+    border-radius: 25px;
+}
+
+.slider > button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    font-size: 24px;
+    transition: background 0.3s;
+}
+
+#prevBtn {
+    left: 10px;
+}
+
+#nextBtn {
+    right: 10px;
 }
 
 /* pagination */
 
-.pagination{
-    margin: 0 auto 0 auto;
-    width: 100px;
-    height: 15px;
-    border: 2px green solid;
+.slider-pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    bottom: 20px;
+    left: 50%;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    margin: 0 5px;
+    background-color: #bbb;
+    border-radius: 50%;
+    transition: background 0.3s;
+}
+
+.dot.active {
+    background-color: #333;
 }
 
 /* articles */
@@ -106,7 +178,6 @@ button{
     height: 300px;
     border-radius: 25px;
     filter: saturate(85%);
-    border: solid black 2px;
 }
 
 .article img:hover{
@@ -170,32 +241,26 @@ footer > h3{
     }
 }
 
-@media (max-width: 1100px){ /*sous 1100px*/
-
-
-}
-
-@media (max-width: 1000px){ /*sous 1000px*/
-
-}
-
 @media (max-width: 850px){ /*sous 850px*/
 
-    nav > button{
-        opacity: 0; /* Disparition progressive */
-        pointer-events: none; /* Désactive l'interaction quand invisible */;
+    #btn-concept, #btn-events, #btn-shops{
+        opacity: 0;
+        width: 0;
+        pointer-events: none;
     }
-    nav > a{
+
+    nav > a {
         position: absolute;
-        transform: translateX(-35vw);
-        /* left: 15%;
-        top: 125px;
-        transform: translate(-50%, -50%); */
+        transform: translateX(-30vw);
     }
-    /* nav > a > img{
-        width: 20vw;
-        height: auto;
-    } */
+
+    .flex{
+        justify-content: space-evenly;
+    }
+
+    nav > button:nth-child(5){
+        margin-left: 5vw;
+    }
 }
 
 @media (max-width: 650px) {
@@ -204,4 +269,28 @@ footer > h3{
         display: flex;
         flex-direction: column;
     }
+
+    h1{
+        font-size: 38px;
+    }
+
+    #btn-products, #btn-account, #btn-command{
+        opacity: 0;
+        width: 0;
+        pointer-events: none;
+    }
+
+    nav > button:nth-child(5){
+        margin-left: 0;
+    }
+    
+    #icon-menu{
+        display: inline-block;
+    }
+
+}
+
+@media (max-width: 500px){
+
+
 }
