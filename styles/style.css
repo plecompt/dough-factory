@@ -6,10 +6,10 @@
 
 body{
     background-color: rgb(255, 220, 220);
-    background-image: url("/assets/nappagehaut.png"), url("/assets/nappagebas.png");
+    background-image: url("/assets/header.png"), url("/assets/footer.png");
     background-repeat: no-repeat no-repeat;   
     background-position: top center, bottom center;
-    background-size: 100% auto, 100% auto;
+    background-size: 100% auto;
 }
 
 .flex{
@@ -42,6 +42,7 @@ img:hover, a:hover, button:hover, .dot:hover {
     cursor: pointer; /* Change l'icône de la souris */
 }
 
+
 /* header */
 
 nav{
@@ -50,7 +51,7 @@ nav{
     background-color: #07AF9F;
     border-radius: 50px;
     gap: 1%;
-    margin: 8vh auto 0 auto;
+    margin: 5vh auto 0 auto;
     padding: 0 1vw;
 }
 
@@ -77,6 +78,14 @@ button{
     display: none;
     width: 60px;
     height: 60px;
+}
+
+#logo {
+    transition: transform 0.1s ease-out;
+}
+
+#logo:hover {
+    transform: rotate(-5deg);
 }
 
 /* slider */
