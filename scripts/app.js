@@ -1,4 +1,3 @@
-document.addEventListener("DOMContentLoaded", () => {
     const sliderContainer = document.querySelector(".slider-container");
     const slides = document.querySelectorAll(".slider-slide");
     const prevBtn = document.getElementById("prevBtn");
@@ -37,7 +36,10 @@ document.addEventListener("DOMContentLoaded", () => {
             updateSlider(currentIndex);
         });
     });
+
+    document.getElementById("icon-menu").addEventListener("click", function () {
+        document.getElementById("dropdown-menu").classList.toggle("active");
+    });
     
     // Initialisation
     updateSlider(currentIndex);
-});

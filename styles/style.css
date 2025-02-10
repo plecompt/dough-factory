@@ -2,9 +2,10 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Lobster Two', cursive;
 }
 
-body{
+body {
     background-color: rgb(255, 220, 220);
     background-image: url("/assets/header.png"), url("/assets/footer.png");
     background-repeat: no-repeat no-repeat;   
@@ -12,17 +13,21 @@ body{
     background-size: 100% auto;
 }
 
-.flex{
+.flex {
     display: flex;
     align-items: center;
     justify-content: space-around;
 }
 
 
-h1{
+h1 {
     font-family: "Pacifico";
     font-size: 48px;
     margin: 5vh;
+}
+
+h3 {
+    font-size: 12px;
 }
 
 main{
@@ -42,6 +47,10 @@ img:hover, a:hover, button:hover, .dot:hover {
     cursor: pointer; /* Change l'icône de la souris */
 }
 
+header {
+    position: relative;
+}
+
 
 /* header */
 
@@ -51,12 +60,8 @@ nav{
     background-color: #07AF9F;
     border-radius: 50px;
     gap: 1%;
-    margin: 5vh auto 0 auto;
+    margin: 6vh auto 0 auto;
     padding: 0 1vw;
-}
-
-nav > a{
-    transition: transform 0.3s ease-in-out; /* Transition fluide sur le déplacement */
 }
 
 [color="pink"]{--color:#FF1979}
@@ -78,6 +83,34 @@ button{
     display: none;
     width: 60px;
     height: 60px;
+}
+
+.menu {
+    display: none; /* Caché par défaut */
+    position: absolute;
+    top: 70px;
+    right: 10px;
+    background: white;
+    border: 1px solid #ccc;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.menu a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: black;
+}
+
+.menu a:hover {
+    background: #f0f0f0;
+}
+
+/* Classe pour afficher le menu */
+.menu.active {
+    display: block;
 }
 
 #logo {
@@ -252,27 +285,30 @@ footer > h3{
 
 @media (max-width: 850px){ /*sous 850px*/
 
+    #icon-menu{
+        display: inline-block;
+    }
+
     #btn-concept, #btn-events, #btn-shops{
-        opacity: 0;
-        width: 0;
-        pointer-events: none;
+        display: none;
     }
 
-    nav > a {
-        position: absolute;
-        transform: translateX(-30vw);
-    }
-
-    .flex{
+    nav.flex{
         justify-content: space-evenly;
-    }
-
-    nav > button:nth-child(5){
-        margin-left: 5vw;
     }
 }
 
 @media (max-width: 650px) {
+
+    nav.flex{
+        justify-content: space-between;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    #btn-products, #btn-account, #btn-command{
+        display: none;
+    }
 
     .articles{
         display: flex;
@@ -282,24 +318,4 @@ footer > h3{
     h1{
         font-size: 38px;
     }
-
-    #btn-products, #btn-account, #btn-command{
-        opacity: 0;
-        width: 0;
-        pointer-events: none;
-    }
-
-    nav > button:nth-child(5){
-        margin-left: 0;
-    }
-    
-    #icon-menu{
-        display: inline-block;
-    }
-
-}
-
-@media (max-width: 500px){
-
-
 }
