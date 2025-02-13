@@ -1,29 +1,22 @@
-//click sur le menu déroulant
-document.getElementById("icon-menu").addEventListener("click", function () {
-    document.getElementById("dropdown-menu").classList.toggle("display");
-});
+function loadPage(page, id) {
+    fetch(page)
+        .then(response => response.text())
+        .then(html => {
+            document.getElementById(id).innerHTML = html;
+        });
+}
 
-//buttons
-document.getElementById('btn-concept').addEventListener('click', ()=>{
-    window.location.href = "./concept.html";
-});
+function loadScript(scriptName) {
+    let script = document.createElement('script');
+    
+    script.src = `./assets/scripts/${scriptName}`;
+    script.defer = true;
+    document.body.appendChild(script);
+}
 
-document.getElementById('btn-events').addEventListener('click', ()=>{
-    window.location.href = "./events.html";
-})
-
-document.getElementById('btn-shops').addEventListener('click', ()=>{
-    window.location.href = "./shops.html";
-})
-
-document.getElementById('btn-products').addEventListener('click', ()=>{
-    window.location.href = "./products.html";
-});
-
-document.getElementById('btn-account').addEventListener('click', ()=>{
-    window.location.href = "./account.html";
-});
-
-document.getElementById('btn-command').addEventListener('click', ()=>{
-    window.location.href = "./command.html";
-});
+loadPage("header.html", "header");
+loadPage("slider.html", "slider");
+loadPage("vitrine.html", "vitrine");
+loadPage("footer.html", "footer");
+loadScript("nav-bar.js");
+loadScript("carrousel.js");
