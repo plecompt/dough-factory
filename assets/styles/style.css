@@ -7,7 +7,7 @@
 
 body {
     background-color: rgb(255, 220, 220);
-    background-image: url("/assets/header.png"), url("/assets/footer.png");
+    background-image: url("/assets/images/header.png"), url("/assets/images/footer.png");
     background-repeat: no-repeat no-repeat;   
     background-position: top center, bottom center;
     background-size: 100% auto;

@@ -14,6 +14,15 @@ function loadScript(scriptName) {
     document.body.appendChild(script);
 }
 
+function unloadPage(id) {
+    document.getElementById(id).innerHTML = ''; // Efface le contenu
+}
+
+function unloadScript(scriptName) {
+    let scripts = document.querySelectorAll(`script[src="./assets/scripts/${scriptName}"]`);
+    scripts.forEach(script => script.remove());
+}
+//Load main page
 loadPage("header.html", "header");
 loadPage("slider.html", "slider");
 loadPage("vitrine.html", "vitrine");

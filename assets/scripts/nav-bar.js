@@ -1,3 +1,12 @@
+function unloadPage(id) {
+    document.getElementById(id).innerHTML = ''; // Efface le contenu
+}
+
+function unloadScript(scriptName) {
+    let scripts = document.querySelectorAll(`script[src="./assets/scripts/${scriptName}"]`);
+    scripts.forEach(script => script.remove());
+}
+
 //click sur le menu déroulant
 document.getElementById("icon-menu").addEventListener("click", function () {
     document.getElementById("dropdown-menu").classList.toggle("display");
@@ -5,7 +14,9 @@ document.getElementById("icon-menu").addEventListener("click", function () {
 
 //buttons
 document.getElementById('btn-concept').addEventListener('click', ()=>{
-    window.location.href = "#";
+    // window.location.href = "#";
+    unloadPage('slider');
+    unloadScript()
 });
 
 document.getElementById('btn-events').addEventListener('click', ()=>{
