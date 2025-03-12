@@ -1,2 +1,2 @@
-# food-truck
-Integration d'une maquette figma d'un site de foodtruck
+# Dough Factory
+Création et integration d'une maquette figma d'un site de vente de donuts.
